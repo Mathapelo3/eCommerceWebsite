@@ -10,8 +10,9 @@ builder.Services.AddControllersWithViews();
 //injecting the connectionString class to the applicationdbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("SoftwareChasersCnn")));
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+/*options => options.SignIn.RequireConfirmedAccount = true*/
+builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
@@ -27,7 +28,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
+app.UseRouting(); 
 app.UseAuthentication();;
 
 app.UseAuthorization();

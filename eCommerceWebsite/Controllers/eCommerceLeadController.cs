@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eCommerceWebsite.Data;
 using eCommerceWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eCommerceWebsite.Controllers
 {
-    //[Authorize]
+    [Authorize]
 
     public class eCommerceLeadController : Controller
     {
