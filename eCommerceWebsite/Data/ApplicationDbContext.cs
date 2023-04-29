@@ -11,5 +11,6 @@ namespace eCommerceWebsite.Data
 
         }
         public DbSet<eCommerceLeadEntity> eCommerceLead {get;set;}
+        public DbSet<eCommerceUser> eCommerceUser { get; set; }
     }
 }

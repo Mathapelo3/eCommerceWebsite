@@ -12,8 +12,8 @@ using eCommerceWebsite.Data;
 namespace eCommerceWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230321193736_IdentityTables")]
-    partial class IdentityTables
+    [Migration("20230429031056_RegistrationCols")]
+    partial class RegistrationCols
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,6 +89,10 @@ namespace eCommerceWebsite.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -140,6 +144,10 @@ namespace eCommerceWebsite.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -258,6 +266,21 @@ namespace eCommerceWebsite.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("eCommerceLead");
+                });
+
+            modelBuilder.Entity("eCommerceWebsite.Models.eCommerceUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("eCommerceUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
