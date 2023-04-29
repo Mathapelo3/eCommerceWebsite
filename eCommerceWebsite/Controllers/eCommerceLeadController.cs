@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace eCommerceWebsite.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Admin")]
 
     public class eCommerceLeadController : Controller
     {

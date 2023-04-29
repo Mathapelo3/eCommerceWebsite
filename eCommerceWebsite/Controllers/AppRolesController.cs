@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace eCommerceWebsite.Controllers
 {
-   // [Authorize]
+   [Authorize(Roles = "Admin")]
 
     public class AppRolesController : Controller
     {

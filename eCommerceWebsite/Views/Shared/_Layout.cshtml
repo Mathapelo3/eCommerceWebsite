@@ -22,9 +22,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AppRoles" asp-action="Create">Roles</a>
-                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AppRoles" asp-action="Create">Roles</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register Employees</a>
+                            </li>
+
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="eCommerceLead" asp-action="Index">eCommerceLead</a>
                         </li>
