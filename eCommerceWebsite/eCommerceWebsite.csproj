@@ -23,4 +23,8 @@
     <PackageReference Include="React.Web.Mvc4" Version="5.2.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\logo\" />
+  </ItemGroup>
+
 </Project>

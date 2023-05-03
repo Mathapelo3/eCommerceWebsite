@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lavish</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="header">
+        <a herf="#"><img src="logo/logo_resized.png" class="logo" alt="" /></a>
+
+        <div>
+            <ul id="navbar">
+
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a asp-area="" asp-controller="AppRoles" asp-action="Create">Roles</a>
+                    </li>
+
+                    <li>
+                        <a asp-area="" asp-controller="eCommerceLead" asp-action="Index">eCommerceLead</a>
+                    </li>
+
+                    <li>
+                        <a id="register" asp-area="Identity" asp-page="/Account/Register">Register Employees</a>
+                    </li>
+                    <li>
+                        <a id="register" asp-area="Identity" asp-page="/Account/Register">Register Employees</a>
+                    </li>
+
+                }
+
+            </ul>
+        </div>
+
+    </section>
+</body>
+</html>
