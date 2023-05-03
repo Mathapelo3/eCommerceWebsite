@@ -1,18 +1,26 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@using eCommerceWebsite.Data;
+@inject UserManager<IdentityUser> _userManager
+@inject SignInManager<IdentityUser> _signInManager
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - eCommerceWebsite</title>
+    <title>@ViewData["Title"] - Lavish</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/eCommerceWebsite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
+  @*  <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">eCommerceWebsite</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">eCommerceWebsite</a> {home}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,7 +52,85 @@
             </div>
             <partial name="_LoginPartial"/>
         </nav>
+    </header>*@
+    <header>
+        <section id="header">
+            <a herf="#"><img src="logo/logo_resized.png" class="logo" alt="" /></a>
+
+            <div>
+                <ul id="navbar">
+                  
+                    
+
+                        <li>
+                            <a class="active" herf="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a herf="" asp-controller="Customer" asp-action="Shop">Shop</a>
+                        </li>
+                        <li>
+                            <a herf="" asp-controller="Home" asp-action="Index">Blog</a>
+                        </li>
+                        <li>
+                            <a herf="" asp-controller="Home" asp-action="Index">About</a>
+                        </li>
+                        <li>
+                            <a herf="" asp-controller="Home" asp-action="Index">Contact</a>
+                        </li>
+                        <li>
+                            <a herf="" asp-controller="Customer" asp-action="Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+                        </li>
+
+                    <li>
+                        <!-- User Profile-->
+                        <div class="user-profile dropdown m-t-20 ">
+                            <div class="user-pic">
+                                @*  @if (profilePictureId != Guid.Empty)
+                                {
+
+                                <img src="@Url.Action("ProfilePicture","Profile",new{Id = profilePictureId})" alt="users" class="rounded-circle img-fluid" />
+                                }
+                                else
+                                {*@
+
+                                <a herf="" asp-area="Identity" asp-action="Login"><i class="fa-regular fa-user"></i></a>
+                                @* }*@
+
+
+                            </div>
+                            <div style="margin-top: 35px;" class="user-content hide-menu m-t-10">
+
+                               @* @if (_signInManager.IsSignedIn(User))
+                                {
+                                    <h5 class="m-b-0">@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</h5>
+                                }
+                                else
+                                {
+                                    <h5 class="m-b-0">John Joe</h5>
+                                }*@
+
+                                
+
+
+
+                               
+
+
+
+                            </div>
+                        </div>
+                        <!-- End User Profile-->
+                    </li>
+                   
+                        
+
+                  
+
+                </ul>
+            </div>
+        </section>
     </header>
+   
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -62,3 +148,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
