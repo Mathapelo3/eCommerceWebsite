@@ -1,4 +1,5 @@
 ﻿@{
+    Layout = "_Layout";
     ViewData["Title"] = "Home Page";
 }
 <!DOCTYPE html>
@@ -15,13 +16,45 @@
 </head>
 
     <body>
-     <section id="hero">
-         <h4>At the tip of your finger</h4>
-         <h2>Supper value deals</h2>
-         <h1>On all products</h1>
-         <p>Save up to 40% off on selected items</p>
-         <button>Shop Now</button>
-     </section>
+       @* <main>*@
+
+           <section id="hero">
+            <h4>At the tip of your finger</h4>
+            <h2>Supper value deals</h2>
+            <h1>On all products</h1>
+            <p>Save up to 40% off on selected items</p>
+            <button>Shop Now</button>
+           </section>
+
+         <section id="feature" class=".section-p1">
+            <div class="fe-box">
+                <img src="~/features/f1.png" alt="" />
+                <h6>Free in-store Collection</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f2.png" alt="" />
+                <h6>Online Order</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f3.png" alt="" />
+                <h6>Save Money</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f4.png" alt="" />
+                <h6>Promotions</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f5.png" alt="" />
+                <h6>Happy Sell</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f6.png" alt="" />
+                <h6>24/7 Support</h6>
+            </div>
+         </section>
+
+       @* </main>*@
+     
     </body>
 </html>
 

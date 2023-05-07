@@ -53,9 +53,9 @@
             <partial name="_LoginPartial"/>
         </nav>
     </header>*@
-    <header>
-        <section id="header">
-            <a herf="#"><img src="logo/logo_resized.png" class="logo" alt="" /></a>
+    <header id="header">
+        
+            <a herf="#"><img src="~/img/resized (4).png" class="logo" alt="" /></a>
 
             <div>
                 <ul id="navbar">
@@ -83,8 +83,8 @@
 
                     <li>
                         <!-- User Profile-->
-                        <div class="user-profile dropdown m-t-20 ">
-                            <div class="user-pic">
+                       
+                           
                                 @*  @if (profilePictureId != Guid.Empty)
                                 {
 
@@ -93,12 +93,11 @@
                                 else
                                 {*@
 
-                                <a herf="" asp-area="Identity" asp-action="Login"><i class="fa-regular fa-user"></i></a>
+                                <a herf="" asp-area="Identity" asp-page="/Account/Login"><i class="fa-regular fa-user"></i></a>
                                 @* }*@
 
 
-                            </div>
-                            <div style="margin-top: 35px;" class="user-content hide-menu m-t-10">
+                        @*    <div style="margin-top: 35px;" class="user-content hide-menu m-t-10">
 
                                @* @if (_signInManager.IsSignedIn(User))
                                 {
@@ -117,8 +116,8 @@
 
 
 
-                            </div>
-                        </div>
+                   
+                      
                         <!-- End User Profile-->
                     </li>
                    
@@ -128,20 +127,20 @@
 
                 </ul>
             </div>
-        </section>
+        
     </header>
    
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div  @* class="container"*@>
+        <main @*role="main" class="pb-3"*@>
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer id="footer">
+        
             &copy; 2023 - eCommerceWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+        
+    </footer >
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
