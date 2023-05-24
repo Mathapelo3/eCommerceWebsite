@@ -19,7 +19,7 @@ namespace eCommerceWebsite.Controllers
         public ActionResult Index()
         {
             var roles = _roleManager.Roles;
-            return View();
+            return View(_roleManager.Roles.ToList());
         }
 
         [HttpGet]

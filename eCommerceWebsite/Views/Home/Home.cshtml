@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Identity
+
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lavish</title>
+    <link rel="stylesheet" href="~/css/Flatly.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+    <body>
+       @* <main>*@
+           <section   class="search-bar">
+        <form id="search">
+                   <input class="box" type="text" placeholder="search here" />
+                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+               </form>
+           </section>
+
+           <section id="hero">
+            <h4>At the tip of your finger</h4>
+            <h2>Supper value deals</h2>
+            <h1>On all products</h1>
+            <p>Save up to 40% off on selected items</p>
+            <button>Shop Now</button>
+           </section>
+
+         <section id="feature" class=".section-p1">
+            <div class="fe-box">
+                <img src="~/features/f1.png" alt="" />
+                <h6>Free in-store Collection</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f2.png" alt="" />
+                <h6>Online Order</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f3.png" alt="" />
+                <h6>Save Money</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f4.png" alt="" />
+                <h6>Promotions</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f5.png" alt="" />
+                <h6>Happy Sell</h6>
+            </div>
+             <div class="fe-box">
+                <img src="~/features/f6.png" alt="" />
+                <h6>24/7 Support</h6>
+            </div>
+         </section>
+
+       @* </main>*@
+     
+    </body>
+</html>
+
+
+

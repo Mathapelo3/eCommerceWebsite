@@ -1,62 +1,27 @@
-﻿@{
-    Layout = "_Layout";
+﻿@model IEnumerable<eCommerceWebsite.Models.SalesSubsystem.Product>
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Identity
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Lavish</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
-    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
-</head>
-
-    <body>
-       @* <main>*@
-
-           <section id="hero">
-            <h4>At the tip of your finger</h4>
-            <h2>Supper value deals</h2>
-            <h1>On all products</h1>
-            <p>Save up to 40% off on selected items</p>
-            <button>Shop Now</button>
-           </section>
-
-         <section id="feature" class=".section-p1">
-            <div class="fe-box">
-                <img src="~/features/f1.png" alt="" />
-                <h6>Free in-store Collection</h6>
+<div class="container">
+    <div class="row pb-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card border-secondary mb-2" style="max-width: 15rem;">
+                    <img class="card-img-top" src="@item.ImageUrl" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">@item.Name</h4>
+                        <p class="card-text">Price: @item.Price.ToString("R0.00")</p>
+                        <a asp-action="Details" asp-controller="Home" asp-route-productId="@item.Id" class="btn btn-outline-info">Details</a>
+                    </div>
+                </div>
             </div>
-             <div class="fe-box">
-                <img src="~/features/f2.png" alt="" />
-                <h6>Online Order</h6>
-            </div>
-             <div class="fe-box">
-                <img src="~/features/f3.png" alt="" />
-                <h6>Save Money</h6>
-            </div>
-             <div class="fe-box">
-                <img src="~/features/f4.png" alt="" />
-                <h6>Promotions</h6>
-            </div>
-             <div class="fe-box">
-                <img src="~/features/f5.png" alt="" />
-                <h6>Happy Sell</h6>
-            </div>
-             <div class="fe-box">
-                <img src="~/features/f6.png" alt="" />
-                <h6>24/7 Support</h6>
-            </div>
-         </section>
-
-       @* </main>*@
-     
-    </body>
-</html>
-
-
+        }
+    </div>
+</div>
 
