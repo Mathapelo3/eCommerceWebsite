@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using eCommerceWebsite.IRepositories;
 using eCommerceWebsite.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -33,6 +34,8 @@ namespace eCommerceWebsite.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IUnit _unit;
+
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -40,7 +43,8 @@ namespace eCommerceWebsite.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            IUnit unit)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -49,6 +53,7 @@ namespace eCommerceWebsite.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _roleManager = roleManager;
+            _unit = unit;
         }
 
         /// <summary>
@@ -117,7 +122,7 @@ namespace eCommerceWebsite.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-
+            
             [Required]
             
             public string? Role { get; set; }
@@ -126,6 +131,18 @@ namespace eCommerceWebsite.Areas.Identity.Pages.Account
             
 
             public IEnumerable<SelectListItem> RoleList { get; set; }
+
+            public string Phone { get; set; }
+
+            public string? Address { get; set; }
+
+            public string? City { get; set; }
+
+            public string? State { get; set; }
+
+            public string? PinCode { get; set; }
+
+
         }
 
 
@@ -157,13 +174,19 @@ namespace eCommerceWebsite.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
+                user.PhoneNumber = Input.Phone;
+                user.Address = Input.Address;
+                user.City = Input.City;
+                user.State = Input.State;
+                user.PinCode = Input.PinCode;
+
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
+                    //GetAwaiter().GetResult();
                     await _userManager.AddToRoleAsync(user,Input.Role);
 
 
