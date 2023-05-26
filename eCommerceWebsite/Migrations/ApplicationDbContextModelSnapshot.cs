@@ -256,7 +256,7 @@ namespace eCommerceWebsite.Migrations
 
                     b.HasIndex("eCommerceUserId");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceWebsite.Models.SalesSubsystem.Category", b =>
@@ -279,7 +279,7 @@ namespace eCommerceWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceWebsite.Models.SalesSubsystem.OrderDetail", b =>
@@ -308,7 +308,7 @@ namespace eCommerceWebsite.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetail");
+                    b.ToTable("OrderDetail", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceWebsite.Models.SalesSubsystem.OrderHeader", b =>
@@ -384,7 +384,7 @@ namespace eCommerceWebsite.Migrations
 
                     b.HasIndex("eCommerceUserId");
 
-                    b.ToTable("OrderHeaders");
+                    b.ToTable("OrderHeaders", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceWebsite.Models.SalesSubsystem.Product", b =>
@@ -417,7 +417,7 @@ namespace eCommerceWebsite.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceWebsite.Models.eCommerceLeadEntity", b =>
@@ -450,7 +450,7 @@ namespace eCommerceWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("eCommerceLead");
+                    b.ToTable("eCommerceLead", (string)null);
                 });
 
             modelBuilder.Entity("eCommerceWebsite.Models.eCommerceUser", b =>

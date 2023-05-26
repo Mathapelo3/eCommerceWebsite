@@ -22,8 +22,8 @@ namespace eCommerceWebsite.Controllers
             _logger = logger;
             _unit = unit;
         }
-
-        public IActionResult Index(string UserRole)
+        [HttpGet]
+        public IActionResult Index()
         {
             IEnumerable<Product> products = _unit.Product.GetAll(includeProperties: "Category");
 
@@ -44,8 +44,7 @@ namespace eCommerceWebsite.Controllers
 
             Cart cart = new Cart()
             {
-                Product = _unit.Product.GetT(x => x.Id == productId,
-                includeProperties: "Category"),
+                Product = _unit.Product.GetT(x => x.Id == productId, includeProperties: "Category"),
                 Count = 1,
                 ProductId = (int)productId
 
@@ -56,7 +55,7 @@ namespace eCommerceWebsite.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [ValidateAntiForgeryToken]
 
         public IActionResult Details(Cart cart)
