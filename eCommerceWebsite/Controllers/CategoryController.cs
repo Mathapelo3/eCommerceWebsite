@@ -1,10 +1,13 @@
 ﻿using eCommerceWebsite.IRepositories;
 using eCommerceWebsite.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace eCommerceWebsite.Controllers
 {
+
+    [Authorize(Roles ="Admin")]
     public class CategoryController : Controller
     {
        

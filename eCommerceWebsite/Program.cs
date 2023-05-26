@@ -5,6 +5,7 @@ using eCommerceWebsite.Repositories;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using eCommerceWebsite.IRepositories;
 using UserEmailSende;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SoftwareChasersCnn"));
 });
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("PaymentSettings"));
 
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders();
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -59,8 +61,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-//StripeConfiguration.ApiKey =
-//    builder.Configuration.GetSection("PaymentSettings:SecretKey").Get<string>();
+StripeConfiguration.ApiKey =
+    builder.Configuration.GetSection("PaymentSettings:SecretKey").Get<string>();
 //dataSedding();
 
 
